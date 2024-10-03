@@ -1,15 +1,20 @@
 <?php
 // db.php
-$host = 'localhost'; // Your database host
-$dbname = 'url_shortener'; // Your database name
-$username = 'root'; // Your MySQL username
-$password = ''; // Your MySQL password
+$host = "junction.proxy.rlwy.net:11128";
+$db   = "short_url_db";
+$user = "moinickcres";
+$pass = "123456781A!a";
+$charset = "utf8mb4";
+
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+$options = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES   => false,
+];
 
 try {
-    // PDO connection to MySQL database
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+     $pdo = new PDO($dsn, $user, $pass, $options);
 } catch (PDOException $e) {
-    die("Could not connect to the database: " . $e->getMessage());
+     throw new PDOException($e->getMessage(), (int)$e->getCode());
 }
-?>
