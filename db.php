@@ -1,10 +1,12 @@
 <?php
 // db.php
-$host = "junction.proxy.rlwy.net:11128";
-$db   = "short_url_db";
-$user = "moinickcres";
-$pass = "123456781A!a";
-$charset = "utf8mb4";
+$host = getenv('MYSQLHOST');  // Your Railway-provided host
+$db   = getenv('MYSQLDATABASE');  // Your database name
+$user = getenv('MYSQLUSER');  // Your username
+$pass = getenv('MYSQLPASSWORD');  // Your password
+$charset = 'utf8mb4';
+
+//mysql://root:gaqeYowLuDXHMzPZmSEaLCedUhAwlXSV@junction.proxy.rlwy.net:11128/railway
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 $options = [
