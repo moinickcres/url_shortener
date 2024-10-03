@@ -6,7 +6,6 @@ $user = getenv('MYSQLUSER');  // Your username
 $pass = getenv('MYSQLPASSWORD');  // Your password
 $charset = 'utf8mb4';
 
-//mysql://root:gaqeYowLuDXHMzPZmSEaLCedUhAwlXSV@junction.proxy.rlwy.net:11128/railway
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 $options = [
